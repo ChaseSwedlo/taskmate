@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+:root {
+    --button-color: rgb(15, 111, 221);
+    --header-height: 60px;
+}
+
+.container {
+    width: min(100% - 40px, 1080px);
+    margin-inline: auto;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.flex {
+    display: flex;
+}
+
+.sb {
+    justify-content: space-between;
+}
+
+.gap {
+    gap: 20px;
+}
+
+/* MAIN */
+main {
+    padding: 140px 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+form { 
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text] {
+    width: 350px;
+    height: 42px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 0 15px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.808);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition-duration: 0.2s;
+    &:focus {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.add-task {
+    height: 42px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100px;
+    font-weight: 500;
+    background-color: var(--button-color);
+    color: rgb(255, 255, 255);
+    transition-duration: 0.2s;
+    &:hover {
+        opacity: 0.8;
+    }
+    &:active {
+        opacity: 0.6;
+    }
+}
+
+.grid {
+    width: 100%;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; 
+}
+
+.task {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.045));
+    height: 90px;
+    border-radius: 2px;
+    padding: 13px 20px;
+    overflow: hidden;
+    transition: border-color 0.4s ease;
+}
+
+.green {
+    border-left: 2px solid rgba(52, 211, 52, 0.64);
+    .fa-check {
+        color: rgba(52, 211, 52, 1);
+    }
+}
+
+.blue {
+    border-left: 2px solid var(--button-color);
+    .fa-check {
+        color: rgb(255, 255, 255);
+    }
+}
+
+.task div:first-child {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow-y: scroll;
+}
+
+.task div:first-child::-webkit-scrollbar {
+    display: none;
+}
+
+.task h2 {
+    font-size: 22px;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+    transition-duration: 0.3s;
+}
+
+.opacity-half {
+    opacity: 0.5;
+}
+
+.task p {
+    width: 100%;
+    font-size: 12px;
+    opacity: 0.4;
+    user-select: none;
+    text-align: left;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 5px 0;
+}
+
+.icon {
+    font-size: 13px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.fa-check {
+    font-size: 14px;
+}
+
+.fa-pen, .fa-trash {
+    margin-bottom: 0.5px;
+}
+
+.icon + .icon {
+    margin-left: 12px;
+}
+
+.fa-pen:hover {
+    color: var(--button-color);
+}
+
+.fa-trash:hover {
+    color: rgb(255, 0, 0);
+}
+
+.fa-check:hover {
+    color: rgba(52, 211, 52, 0.637);
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    input[type=text] {
+        width: 250px;
+    }
+}
+
+@media (max-width: 400px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    input[type=text] {
+        width: 200px;
+    }
+}
